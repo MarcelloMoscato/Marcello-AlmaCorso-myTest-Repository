@@ -3,5 +3,4 @@
 Questo è un nuovo file, creato con il proposito di testare Git
 Data Creazione: 4 Marzo 2021
 
-Data Modifica: 9 Marzo 2021
-  Ora Intervento: 13:59
+- Il file è attualmente (10-03-2021 14:42) nella Sottodirectory Config del main
