@@ -1,5 +1,0 @@
-# myTest-Repository
-
-Questo è un nuovo file, creato con il proposito di testare Git
-Data Creazione: 4 Marzo 2021
-
