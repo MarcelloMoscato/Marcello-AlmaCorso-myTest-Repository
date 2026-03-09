@@ -1,0 +1,198 @@
+####  Semplici Note Git
+
+
+Riferimento Documentazione UniBologna
+-----------------------------------------------------
+http://www.cs.unibo.it/~renzo/so/docs.shtml
+
+
+Git - Riferimenti Web
+-----------------------------------------------------
+http://book.git-scm.com     - home page ufficiale di git
+https://git-scm.com/book/it/v2/Per-Iniziare-Il-Controllo-di-Versione
+https://get-git.readthedocs.io/it/latest/index.html
+https://www.marcellosilvestri.it/guida-git/
+https://blog.netsons.com/git-software-guida-facile/
+https://blog.udemy.com/git-tutorial-a-comprehensive-guide/
+http://rogerdudler.github.io/git-guide/index.it.html
+
+
+Git - Riferimenti Libri
+-----------------------------------------------------
+[Swicegood] Pragmatic Guide to Git
+[Hutten] Git - Learn Version Control with Git - A Step by Step Ultimate Beginners Guide
+[Daityari] Jump Start Git
+[Hodson] Ry’s Git Tutorial
+[Somasundaram] Git - Version Control for Everyone Beginner's Guide
+[Santacroce] Git Essentials
+...............
+
+
+Git - Info
+-----------------------------------------------------
+https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Where-system-global-and-local-Windows-Git-config-files-are-saved
+
+
+
+
+
+
+
+
+####  Corso Git AlmavivA - Piattaforma DOCEBO
+
+
+
+
+Documentazioni e tutorial online
+-----------------------------------------------------
+[1]      https://github.com/
+[2]      http://nvie.com/posts/a-successful-git-branching-model/
+[3]      http://msysgit.github.io/
+[4]      https://git-scm.com/book/it/v1
+[5]      https://www.learnenough.com/git-tutorial
+[6]      https://www.atlassian.com/git/tutorials/svn-to-git-prepping-your-team-migration 
+[7]      https://eclipse.org/egit/documentation/
+[8]      https://wiki.eclipse.org/EGit/User_Guide#Getting_Started
+[9]      https://www.visualstudio.com/en-us/docs/git/tutorial/gitworkflow
+
+
+
+
+github - account corso
+------------------------------
+Username: Marcello-AlmaCorso
+Email address: <email aziendale>
+Password: <Nome>-<Data>
+    <Nome> corrisponde a quello, in Latino, del sovrano di un regno ideale
+    <Data> corrisponde a quella di un giorno fatidico, culminato in festa dopo una imprevista attesa
+
+Repository creato: https://github.com/Marcello-AlmaCorso/myTest-Repository
+
+
+
+
+VCS - Version Control System
+	Locale
+	Centralizzato
+	Distribuito
+
+Git è un VCS Distribuito
+
+
+Nel database locale (copia del repository scaricata) ciascun file può trovarsi in uno di tre possibili stati
+  modified - il file è stato acceduto dal repository locale e modificato
+  staged - il file precedentemente oggetto di modifica è contrassegnato come pronto per essere registrato allo stato definitivo
+  committed - il file modificato è stato registrato nella nuova versione nel repository locale
+
+
+
+
+
+git config --global user.name "Marcello-AlmaCorso"
+git config --global user.email "m.moscato@almaviva.it"
+
+git config --list
+git config --global --list
+git config --system --list
+git config --local --list
+
+
+git init  ## inizializza un repository vuoto, nella directory da cui è lanciato il comando
+
+
+git clone <url_repository>
+git clone --depth 20 <url_repository>  ## In questo caso si clona, nella directory da cui è lanciato il comando, il repository con una profondità di 20 aggiornamenti (20 commit)
+
+
+git add <nomefile>
+git add .
+git add -A
+git add -u  ## Aggiunge nell'area di stage i file tracciati dal repository che sono stati oggetto di modifica
+
+git status
+
+git commit -m "<messaggio>"
+
+
+git log
+git log --all --oneline --graph
+
+
+git show <sha>
+
+
+git diff <from> <to>
+	dove <from> e <to> indicano le chiavi di commit, rispettivamente di partenza ed arrivo
+git diff fromSha toSha
+	restituisce la sequenza di commit effettuate per passare dalla chiave fromSha alla chiave toSha
+
+
+git branch nomeRamo <sha>
+git branch -d nomeRamo
+
+
+git checkout <sha>
+git checkout nomeRamo  ## Il nome del branch (nell'esempio nomeRamo) segue gli aggiornamenti effettuati nella evoluzione del ramo
+	## Un ramo privo di etichetta sull'ultimo aggiornamento, sarebbe eliminato dalla successivo intervento di garbace collection
+
+
+git cherry-pick <sha>
+git rebase nomeRamo
+
+
+git merge nomeRamo
+
+
+git remote add nomeRepoRemoto <indirizzo>
+git remote
+git remote --verbose
+
+
+
+
+
+
+git push
+git push origin master
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+clonazione Repository Remoto RInf
+---------------------------------------------------------------------------------------------------
+
+git clone https://gitfs.almaviva.it/root/rinf-new-2
+
+git remote add RInf-RemoRepos https://gitfs.almaviva.it/root/rinf-new-2
+
+
+
+
+SSL Certificate Problem
+---------------------------------------------------------------------------------------------------
+
+https://komodor.com/learn/how-to-fix-ssl-certificate-problem-unable-to-get-local-issuer-certificate-git-error/
+
+git config --global http.sslVerify false
+	## disabilita la verifica delle credenziali con Certificati SSL
+
+git config --global http.sslVerify true
+	## abilita la verifica delle credenziali con Certificati SSL
+
+
+
+
+Eliminazione degli ultimi commit dal repository locale
+---------------------------------------------------------------------------------------------------
+
+https://www.lucagrilli.com/annullare-commit-locali-recenti-git#:~:text=git%20reset%20HEAD~%20è%20il,poter%20effettuare%20nuovamente%20il%20commit.
+
+git reset HEAD
+
+N.B.: Il comando <git reset> ha varie opzioni - ricercare la più conveniente, prima dell'impiego
+		... ATTENZIONE!!! ... Il comando va usato con cautele, poiché il suo effetto può essere irreversibile
