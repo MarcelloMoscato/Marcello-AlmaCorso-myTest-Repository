@@ -5,3 +5,8 @@ Data Creazione: 4 Marzo 2021
 
 Aggiunta nuove rigahe nel file, per testare la funzionalità di git attraverso VS Code
 L'intervento è stato effettuato il 5 MArzo 2026, utilizzando l'Editor "nano"
+
+
+Questo file è stato modificato con lo scopo di testare il comando git pull --rebase
+Aggiornamento Alpha iniziale sul branch locale lineaCinque
+
