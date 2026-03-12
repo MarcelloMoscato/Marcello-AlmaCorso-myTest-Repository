@@ -134,14 +134,24 @@ git branch -d nomeRamo
 
 git checkout <sha>
 git checkout nomeRamo  ## Il nome del branch (nell'esempio nomeRamo) segue gli aggiornamenti effettuati nella evoluzione del ramo
-	## Un ramo privo di etichetta sull'ultimo aggiornamento, sarebbe eliminato dalla successivo intervento di garbace collection
+	## Un ramo privo di etichetta sull'ultimo aggiornamento, sarebbe eliminato dal successivo intervento di garbace collection
 
 
 git cherry-pick <sha>
+	## Aggiunge, sul branch corrente, la commit relativa a quella identificata da <sha>
+
+
 git rebase nomeRamo
+	## Sposta il branch corrente su quello specificato da nomeRamo
+		[Tutte le commit del branch corrente che non siano comuni al branch nomeRamo - corrisponde ad uno spostamento del branch corrente per posizionarlo su quello indicato da nomeRamo]
+
+git rebase branchUno branchDue
+	## Sposta, sopra branch branchUno, il branch branchDue
 
 
 git merge nomeRamo
+	## Unisce il branch corrente a quello individuato da nomeRamo, creando una modifica da rendere effettiva con una nuova commit
+		[È logicamente simile all'operazione di rebase: i commit legati al branch nomeRamo divengono parte di quello corrente, ma questo non viene spostato]
 
 
 git remote add nomeRepoRemoto <indirizzo>
@@ -152,9 +162,21 @@ git remote --verbose
 
 
 
+git pull --rebase <nomeRepoRemoto>
+	## Aggiunge preventivamente sul branch corrente, prima delle commit effettuate in locale, quelle del corrispondente branch remoto
+	## Successivamente aggiunge le commit effettuate in locale non ancora su <repoRemoto>, ponendole in "rebase" sullo stesso branch
+
 
 git push
 git push origin master
+git push -u origin --all
+
+
+## più precisamente
+git push
+git push <nomeRepoRemoto> <nomeBranch>
+git push -u origin --all
+
 
 
 
@@ -196,3 +218,5 @@ git reset HEAD
 
 N.B.: Il comando <git reset> ha varie opzioni - ricercare la più conveniente, prima dell'impiego
 		... ATTENZIONE!!! ... Il comando va usato con cautele, poiché il suo effetto può essere irreversibile
+
+Consultare il manuale di riferimento per il comando "git reset"
