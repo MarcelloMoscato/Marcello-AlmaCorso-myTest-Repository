@@ -5,3 +5,6 @@ Avvia Nuova Linea  # Linea della precedente versione del file
 
 Aggiunta Nuove Linee per modificare il contenuto del file
 e per ripristinarlo nella directory iniziale
+
+
+Ulteriore Modifica del file presente, effettuata direttamente sul Repository Remoto
