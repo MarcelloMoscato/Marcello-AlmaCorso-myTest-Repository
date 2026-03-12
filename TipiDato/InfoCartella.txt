@@ -1,0 +1,6 @@
+Questa Cartella conterrà gli script di definizione dei Tipi di Dato
+
+File Aggiunto per consistenza
+
+Data Creazione: 12-03-2026
+

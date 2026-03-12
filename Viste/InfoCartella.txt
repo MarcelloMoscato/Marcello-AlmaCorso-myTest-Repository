@@ -1,0 +1,4 @@
+Questa Cartella contiene la definizione di tutte le Viste dello Schema corrispondente
+
+Data Creazione: 12-03-2026
+
