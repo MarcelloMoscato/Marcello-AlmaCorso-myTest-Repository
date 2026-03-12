@@ -6,3 +6,6 @@ Data Creazione: 12 Marzo 2021
 
 Altro Aggiornamento in data 10 Marzo
 
+
+Modifica de file Minnie.txt per testare la funzionalità del comando git pull
+Aggiornamento Beta
