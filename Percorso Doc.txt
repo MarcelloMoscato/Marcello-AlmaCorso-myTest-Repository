@@ -3,3 +3,6 @@ Questo file contiene il puntamento, nel file system del mio Notebook aziendale, 
 Link:
 file:///C:/Program%20Files/Git/mingw64/share/doc/git-doc/
 
+
+Nella DIrectory "D:\Personale\Studio - Aggiornamento\[Git]\Doc" sono disponibili le slides del Corso AlmavivA ed altra utile documentazione
+sui comandi di interazione con il Repository Remoto
