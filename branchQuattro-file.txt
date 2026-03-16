@@ -1,4 +1,0 @@
-Questo file è stato inserito nel file system, per motivi di test
-
-Nome file: branchQuattro-file.txt
-
