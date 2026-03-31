@@ -1,0 +1,1 @@
+-- Script di Rilascio del Task EvoSvi-8.035

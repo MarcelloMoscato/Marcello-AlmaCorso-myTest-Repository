@@ -1,0 +1,1 @@
+-- Script di Regressione del Task EvoSvi-8.035
