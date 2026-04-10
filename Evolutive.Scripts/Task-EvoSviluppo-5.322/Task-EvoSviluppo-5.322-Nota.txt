@@ -1,0 +1,6 @@
+- Task-EvoSviluppo-5.322-Nota.txt
+----------------------------------------------------------------------------------------------------
+
+
+
+Task per valutare le proprietà e funzionalità del comando git merge
