@@ -1,0 +1,10 @@
+--
+-- IS_NUMBER  (Function) 
+--
+CREATE OR REPLACE FUNCTION APPL_RINF_EVO."IS_NUMBER" (N IN VARCHAR2) RETURN NUMBER IS
+  BEGIN
+    RETURN CASE regexp_like(N,'^[\+\-]?[0-9]*\.?[0-9]+$') WHEN TRUE THEN 1 ELSE 0 END;
+END is_number;
+
+
+/
