@@ -1,2 +1,4 @@
 File contenente le Specifiche del Processore Grafico necessario all'Applicativo
 Verificare Attentamente
+
+-- Aggiunto nuovo branch per non perdere la foto sul presente File
