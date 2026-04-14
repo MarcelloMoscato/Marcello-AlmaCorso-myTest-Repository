@@ -1,0 +1,2 @@
+-- File contenente lo script di Rilascio per il Task "Trattamento Nuovi Parametri 2023/1694 - Fase 1" [Task-EvoSvi-12.0.0]
+----------------------------------------------------------------------------------------------------------------------------------
