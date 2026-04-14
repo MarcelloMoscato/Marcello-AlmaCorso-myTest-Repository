@@ -1,0 +1,2 @@
+File contenente le Specifiche del Processore Grafico necessario all'Applicativo
+Verificare Attentamente
