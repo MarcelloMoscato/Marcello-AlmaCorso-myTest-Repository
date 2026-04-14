@@ -12,6 +12,8 @@ CREATE OR REPLACE PACKAGE APPL_RINF_EVO."PKG_RINF_ACQUISIZIONI" AS
    1.0        10/20/2014      d.campagiorni       1. Created this package.
 ******************************************************************************/
 
+--> Modifica per testare l'utilizo di git
+
 TYPE empcur IS REF CURSOR;
   PROCEDURE SetRomanAcquisition (data_riferimento DATE, p_error OUT NUMBER);
   PROCEDURE SetPICAcquisition (data_riferimento DATE, p_error OUT NUMBER);
@@ -62,7 +64,7 @@ CREATE OR REPLACE PACKAGE BODY APPL_RINF_EVO."PKG_RINF_ACQUISIZIONI" IS
    id_file     UTL_FILE.FILE_TYPE;
    nome_file   VARCHAR2 (500);
 
-   --14/12/2016 sostituita la data di riferimento della validità degli oggetti da SYSDATE con il giorno della fotografia del DWH
+   --14/12/2016 sostituita la data di riferimento della validitï¿½ degli oggetti da SYSDATE con il giorno della fotografia del DWH
   PROCEDURE SetPICAcquisition (data_riferimento DATE, p_error OUT NUMBER)    IS
 
    BEGIN
@@ -113,7 +115,7 @@ INSERT INTO RINF_ANAGRAFICHE_EVO.ANAG_TIPO_ESERCIZIO (CODICE_TIPO,
                   SELECT CODICE_TIPO
                     FROM RINF_ANAGRAFICHE_EVO.ANAG_TIPO_ESERCIZIO);
 
---Inserico la data scadenza per i codici non più validi
+--Inserico la data scadenza per i codici non piï¿½ validi
 
 UPDATE RINF_ANAGRAFICHE_EVO.ANAG_TIPO_ESERCIZIO
    SET DATA_SCADENZA = data_riferimento
@@ -662,7 +664,7 @@ UPDATE RINF_ANAGRAFICHE_EVO.LOCALITA_PIC
                   AND NVL (l.DATAINIZIOVALIDITA,
                            TO_DATE ('01011999', 'DDMMYYYY')) <= data_riferimento);
 
---29/02/2016 aggiornamento della data di fine validità per gli oggetti scaduti
+--29/02/2016 aggiornamento della data di fine validitï¿½ per gli oggetti scaduti
 UPDATE RINF_ANAGRAFICHE_EVO.LOCALITA_PIC p
    SET DATA_FINE_VALIDITA =
           (SELECT MAX (DATAFINEVALIDITA)
@@ -843,7 +845,7 @@ UPDATE RINF_ANAGRAFICHE_EVO.TRATTE_PIC
                   AND NVL (t.DATAINIZIOVALIDITA,
                            TO_DATE ('01011999', 'DDMMYYYY')) <= data_riferimento);
 
---29/02/2016 aggiornamento della data di fine validità per gli oggetti scaduti
+--29/02/2016 aggiornamento della data di fine validitï¿½ per gli oggetti scaduti
 
 UPDATE RINF_ANAGRAFICHE_EVO.TRATTE_PIC p
    SET DATA_FINE_VALIDITA =
@@ -975,7 +977,7 @@ INSERT INTO RINF_ANAGRAFICHE_EVO.CORRIDOIO_TRATTE (CODICE_GIURISDIZIONE,
             FLAGTITOLARE
        FROM RINF_STAGING_EVO.PIC_CORRIDOIOMERCI_TRATTA t,
             RINF_ANAGRAFICHE_EVO.ANAG_CORRIDOI c,
-            RINF_ANAGRAFICHE_EVO.TRATTE_PIC p --10/02/2016 Aggiunta join per rendere più robusto il codice, per garantire l'integrazione referenziale
+            RINF_ANAGRAFICHE_EVO.TRATTE_PIC p --10/02/2016 Aggiunta join per rendere piï¿½ robusto il codice, per garantire l'integrazione referenziale
       WHERE     C.CODICE_GIURISDIZIONE = t.CODICEGIURISDIZIONE
             AND t.CODICETRATTA = p.CODICE_TRATTA_PIC
             AND NVL (DATAINIZIOVALIDITA, TO_DATE ('01011999', 'DDMMYYYY')) <=
@@ -1028,7 +1030,7 @@ INSERT INTO RINF_ANAGRAFICHE_EVO.CORRIDOIO_LOCALITA (CODICE_GIURISDIZIONE,
             FLAGTITOLARE
        FROM RINF_STAGING_EVO.PIC_CORRIDOIOMERCI_LOCALITA l,
             RINF_ANAGRAFICHE_EVO.ANAG_CORRIDOI c,
-            RINF_ANAGRAFICHE_EVO.LOCALITA_PIC p --10/02/2016 Aggiunta join per rendere più robusto il codice, per garantire l'integrazione referenziale
+            RINF_ANAGRAFICHE_EVO.LOCALITA_PIC p --10/02/2016 Aggiunta join per rendere piï¿½ robusto il codice, per garantire l'integrazione referenziale
       WHERE     l.CODICEGIURISDIZIONE = c.CODICE_GIURISDIZIONE
             AND l.CODICELOCALITA = P.CODICE_LOCALITA_PIC
             AND NVL (DATAINIZIOVALIDITA, TO_DATE ('01011999', 'DDMMYYYY')) <=
@@ -1181,7 +1183,7 @@ INSERT INTO RINF_ANAGRAFICHE_EVO.LINEA_TENT_TRATTE (CODICE_GIURISDIZIONE,
             FLAGTITOLARE
        FROM RINF_STAGING_EVO.PIC_LINEATEN_TRATTA t,
             RINF_ANAGRAFICHE_EVO.ANAG_LINEE_TENT l,
-            RINF_ANAGRAFICHE_EVO.TRATTE_PIC p --10/02/2016 Aggiunta join per rendere più robusto il codice, per garantire l'integrazione referenziale
+            RINF_ANAGRAFICHE_EVO.TRATTE_PIC p --10/02/2016 Aggiunta join per rendere piï¿½ robusto il codice, per garantire l'integrazione referenziale
       WHERE     t.CODICEGIURISDIZIONE = l.CODICE_GIURISDIZIONE
             AND t.CODICETRATTA = p.CODICE_TRATTA_PIC
             AND DATAINIZIOVALIDITA <= data_riferimento
@@ -1231,7 +1233,7 @@ INSERT INTO RINF_ANAGRAFICHE_EVO.LINEA_TENT_LOCALITA (CODICE_GIURISDIZIONE,
             FLAGTITOLARE
        FROM RINF_STAGING_EVO.PIC_LINEATEN_LOCALITA t,
             RINF_ANAGRAFICHE_EVO.ANAG_LINEE_TENT l,
-            RINF_ANAGRAFICHE_EVO.LOCALITA_PIC p --10/02/2016 Aggiunta join per rendere più robusto il codice, per garantire l'integrazione referenziale
+            RINF_ANAGRAFICHE_EVO.LOCALITA_PIC p --10/02/2016 Aggiunta join per rendere piï¿½ robusto il codice, per garantire l'integrazione referenziale
       WHERE     t.CODICEGIURISDIZIONE = l.CODICE_GIURISDIZIONE
             AND t.CODICELOCALITA = p.CODICE_LOCALITA_PIC
             AND DATAINIZIOVALIDITA <= data_riferimento
@@ -1372,7 +1374,7 @@ INSERT INTO RINF_ANAGRAFICHE_EVO.LINEA_COMM_TRATTE (CODICE_GIURISDIZIONE,
             FLAGTITOLARE
        FROM RINF_STAGING_EVO.PIC_TRATTA_COMM_TRATTA c,
             RINF_ANAGRAFICHE_EVO.TRATTE_PIC t,
-            RINF_ANAGRAFICHE_EVO.ANAG_LINEA_COMMERCIALE a --10/02/2016 Aggiunta join per rendere più robusto il codice, per garantire l'integrazione referenziale
+            RINF_ANAGRAFICHE_EVO.ANAG_LINEA_COMMERCIALE a --10/02/2016 Aggiunta join per rendere piï¿½ robusto il codice, per garantire l'integrazione referenziale
       WHERE     T.CODICE_TRATTA_PIC = C.CODICETRATTA
             AND A.CODICE_GIURISDIZIONE = C.CODICEGIURISDIZIONE
             AND NVL (DATAINIZIOVALIDITA, TO_DATE ('01011999', 'DDMMYYYY')) <=
@@ -1434,7 +1436,7 @@ INSERT INTO RINF_ANAGRAFICHE_EVO.LINEA_COMM_LOCALITA (CODICE_GIURISDIZIONE,
             FLAGTITOLARE
        FROM RINF_STAGING_EVO.PIC_TRATTA_COMM_LOCALITA c,
             RINF_ANAGRAFICHE_EVO.LOCALITA_PIC l,
-            RINF_ANAGRAFICHE_EVO.ANAG_LINEA_COMMERCIALE a --10/02/2016 Aggiunta join per rendere più robusto il codice, per garantire l'integrazione referenziale
+            RINF_ANAGRAFICHE_EVO.ANAG_LINEA_COMMERCIALE a --10/02/2016 Aggiunta join per rendere piï¿½ robusto il codice, per garantire l'integrazione referenziale
       WHERE     C.CODICELOCALITA = L.CODICE_LOCALITA_PIC
             AND A.CODICE_GIURISDIZIONE = C.CODICEGIURISDIZIONE
             AND NVL (DATAINIZIOVALIDITA, TO_DATE ('01011999', 'DDMMYYYY')) <=
@@ -1620,7 +1622,7 @@ UPDATE RINF_ANAGRAFICHE_EVO.ANAG_REGIONE_ROMAN
 
 
 --ANAG_COER_ROMAN
---UPDATE RINF_ANAGRAFICHE_EVO.ANAG_COER_ROMAN --implimentato ma in maniera errata perchè TOP_DISTRICT non sono i COER
+--UPDATE RINF_ANAGRAFICHE_EVO.ANAG_COER_ROMAN --implimentato ma in maniera errata perchï¿½ TOP_DISTRICT non sono i COER
 --SET
 --(SIGLA, DESCRIZIONE, DATA_SCADENZA)=
 --(SELECT  DIST_NAME, DIST_LNAME, NULL
@@ -1758,7 +1760,7 @@ INSERT INTO RINF_ANAGRAFICHE_EVO.TRATTE_ROMAN (CODICE_TRATTA_ROMAN,
           TRSC_PIC_ID
      FROM RINF_STAGING_EVO.ROMAN_TOP_TRACKSECTION
     WHERE TRSC_ID IN
-    --13/02/2018 a parità di codice PIC si considera la tratta con codice Roman più alto (mail E.Tisbi del 18/12/2017)
+    --13/02/2018 a paritï¿½ di codice PIC si considera la tratta con codice Roman piï¿½ alto (mail E.Tisbi del 18/12/2017)
              (SELECT MAX(TRSC_ID) FROM RINF_STAGING_EVO.ROMAN_TOP_TRACKSECTION
              GROUP BY TRSC_PIC_ID
               MINUS
@@ -1819,7 +1821,7 @@ INSERT INTO RINF_ANAGRAFICHE_EVO.LINEA_FCL_TRATTE_ROMAN (
           FCLT_TIMESTAMP
      FROM RINF_STAGING_EVO.ROMAN_FS_LINEE_FCL_TRATTE t,
           RINF_ANAGRAFICHE_EVO.ANAG_LINEA_FCL f,
-          RINF_ANAGRAFICHE_EVO.TRATTE_ROMAN r --10/02/2016 Aggiunta join per rendere più robusto il codice, per garantire l'integrazione referenziale
+          RINF_ANAGRAFICHE_EVO.TRATTE_ROMAN r --10/02/2016 Aggiunta join per rendere piï¿½ robusto il codice, per garantire l'integrazione referenziale
     WHERE     T.FCLT_FCL_ID = F.CODICE_LINEA_FCL
           AND T.FCLT_TRSC_ID = R.CODICE_TRATTA_ROMAN
           AND (FCLT_FCL_ID, FCLT_TRSC_ID) IN
@@ -2011,7 +2013,7 @@ INSERT INTO RINF_ANAGRAFICHE_EVO.LINEE_FCL_DATI_ROMAN (FCLD_ID,
           FCLD_TB_ID,
           FCLD_SSC
      FROM RINF_STAGING_EVO.ROMAN_FS_LINEE_FCL_DATI d,
-          RINF_ANAGRAFICHE_EVO.LINEA_FCL_TRATTE_ROMAN l --10/02/2016 Aggiunta join per rendere più robusto il codice, per garantire l'integrazione referenziale
+          RINF_ANAGRAFICHE_EVO.LINEA_FCL_TRATTE_ROMAN l --10/02/2016 Aggiunta join per rendere piï¿½ robusto il codice, per garantire l'integrazione referenziale
     WHERE     l.CODICE_LINEA_FCL = d.FCLD_FCL_ID
           AND l.CODICE_TRATTA_ROMAN = d.FCLD_TRSC_ID
           AND FCLD_ID IN
@@ -2156,7 +2158,7 @@ INSERT INTO RINF_ANAGRAFICHE_EVO.FASCICOLO_LINEE_FCL (
           FCLAGD_IX
      FROM RINF_STAGING_EVO.ROMAN_FS_LINEE_FCL_AGGR_DETT d,
           RINF_ANAGRAFICHE_EVO.ANAG_LINEA_FCL l,
-          RINF_ANAGRAFICHE_EVO.ANAG_FASCICOLO_LINEE f --10/02/2016 Aggiunta join per rendere più robusto il codice, per garantire l'integrazione referenziale
+          RINF_ANAGRAFICHE_EVO.ANAG_FASCICOLO_LINEE f --10/02/2016 Aggiunta join per rendere piï¿½ robusto il codice, per garantire l'integrazione referenziale
     WHERE     d.FCLAGD_FCL_ID = l.CODICE_LINEA_FCL
           AND d.FCLAGD_FCLAG_ID = F.CODICE_FASCICOLO
           AND (FCLAGD_FCLAG_ID, FCLAGD_FCL_ID) IN
@@ -2842,7 +2844,7 @@ FOR i IN 1 .. l_plat_ogg.COUNT
    MINUS
    select PO_TRACK_1_2_1_0_0_2 FROM RINF_LAVORAZIONE_EVO.BINARI_CORSA_PO);
 
-   ---Elimino l'attribuzione più volte allo stesso binario
+   ---Elimino l'attribuzione piï¿½ volte allo stesso binario
 
    SELECT PO_TR_PLATFORM_1_2_1_0_6_2,
          PO_TR_PLATFORM_1_2_1_0_6_2_D,
